@@ -3,15 +3,15 @@
 **Track**: Enterprise Agents
 
 ## Problem Statement
-Small business owners (restaurants, salons, retail) struggle to stay on top of daily operations. Data is scattered across POS systems, spreadsheets, and emails. They often miss critical trends (like low inventory or declining revenue) until it's too late, and spend hours manually coordinating tasks and updates.
+Small business owners (supermarkets, restaurants, retail shops, clinics & medical stores, salons, etc.) struggle to keep up with daily operations. Data is scattered across POS systems, spreadsheets, and emails. They often miss critical trends (like low inventory or declining revenue) until it's too late, and spend hours manually coordinating tasks and updates.
 
 ## Solution: OpsPilot
-OpsPilot is a **Multi-Business AI Operations Co-Pilot** that acts as an intelligent layer on top of existing business data.
+OpsPilot is a **Multi-Business AI Operations Co-Pilot** that transforms passive data into active business intelligence. Instead of forcing owners to dig through spreadsheets, OpsPilot brings the insights to them.
 
--   **Connects**: Directly to Google Sheets (where many SMEs live).
--   **Analyzes**: Runs a daily "Operations Review" to compute KPIs and detect anomalies using a multi-agent architecture.
--   **Acts**: Automatically generates tasks, schedules meetings, and sends briefings via Email/Calendar/MCP.
--   **Scales**: Configurable via "Business Profiles" to work for any industry.
+-   **Unifies Operations**: Bridges the gap between scattered data (Sheets) and action (Email/Calendar), creating a single source of truth.
+-   **Automates Decision Making**: Turns raw numbers into concrete next steps, eliminating analysis paralysis.
+-   **Empowers Action**: Doesn't just report problems; schedules the meetings and creates the tasks to fix them immediately.
+-   **Adapts Instantly**: One brain that learns the specific context of any business—from cafes to retail stores—without custom code.
 
 ## Technical Architecture
 Built with **Python** and **Google Gemini 2.0 Flash**, OpsPilot features:
@@ -23,9 +23,10 @@ Built with **Python** and **Google Gemini 2.0 Flash**, OpsPilot features:
 3.  **Real Integrations**: Google Sheets, Gmail, and Google Calendar APIs.
 
 ## Value Proposition
--   **Time Saved**: Automates the daily 1-hour manual review process (~5 hours/week saved per manager).
--   **Proactive**: Catches issues (e.g., "Low Inventory") *before* they impact sales.
--   **Interoperable**: The MCP layer means this agent can live inside your IDE or other AI tools.
+-   **Reclaim Your Time**: Frees up 5+ hours per week by automating the daily "checking the numbers" grind, allowing owners to focus on growth.
+-   **Prevent Revenue Leakage**: Proactively identifies stockouts and sales dips *before* they hurt the bottom line.
+-   **Operational Resilience**: Ensures no critical metric is ever overlooked, providing 24/7 monitoring that human managers can't match.
+-   **Future-Proof**: Built on the Model Context Protocol (MCP), making your business data accessible to the next generation of AI tools.
 
 ## How to Run
 1.  Clone the repo.
