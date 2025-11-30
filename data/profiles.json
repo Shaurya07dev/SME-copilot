@@ -1,0 +1,26 @@
+{
+    "cafe_delight": {
+        "name": "Cafe Delight",
+        "industry": "restaurant",
+        "spreadsheet_id": "1Gz_1IvpnVOly_v7YjqxeEgAHW78-c-e6eCPL_aj2_vI",
+        "tables": {
+            "sales": "Sales!A:E",
+            "inventory": "Inventory!A:D",
+            "staff": "Staff!A:C"
+        },
+        "kpis": {
+            "revenue": {
+                "column": "Amount",
+                "op": "sum"
+            },
+            "orders": {
+                "column": "OrderID",
+                "op": "count"
+            }
+        },
+        "thresholds": {
+            "min_daily_revenue": 500,
+            "low_inventory_count": 10
+        }
+    }
+}
