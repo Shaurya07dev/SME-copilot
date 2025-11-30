@@ -16,11 +16,20 @@
             "orders": {
                 "column": "OrderID",
                 "op": "count"
+            },
+            "inventory": {
+                "column": "Quantity",
+                "op": "sum"
+            },
+            "staff_count": {
+                "column": "ID",
+                "op": "count"
             }
         },
         "thresholds": {
-            "min_daily_revenue": 500,
-            "low_inventory_count": 10
+            "min_daily_revenue": 1000,
+            "min_inventory": 50,
+            "min_staff_count": 3
         }
     }
 }

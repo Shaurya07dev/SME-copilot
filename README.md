@@ -1,12 +1,3 @@
-# OpsPilot - Detailed Setup Guide
-
-OpsPilot is an AI Operations Co-Pilot that connects to your business data (Google Sheets), runs daily reviews, and generates actionable insights.
-
-## 1. Prerequisites
-
-Before running the code, you need to set up your environment and Google Cloud credentials.
-
-### A. Python Environment
 1.  Ensure you have Python 3.9+ installed.
 2.  Install the required dependencies:
     ```bash

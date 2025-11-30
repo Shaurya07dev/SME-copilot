@@ -77,11 +77,20 @@ def generate_actions(issues, playbooks=None):
                 "subject": "Alert: Low Revenue",
                 "body": f"Attention required. {issue}"
             })
+            })
         elif "Low inventory" in issue:
              actions.append({
                 "type": "create_task",
                 "title": "Restock Inventory",
                 "description": f"Inventory levels critical. {issue}"
+            })
+        elif "Low staff_count" in issue:
+            actions.append({
+                "type": "create_calendar_event",
+                "summary": "Emergency Staff Meeting",
+                "description": f"Staff count is critically low. {issue}",
+                "start_time": datetime.now().isoformat(),
+                "end_time": datetime.now().isoformat() # In real app, would add 1 hour
             })
             
     return actions
