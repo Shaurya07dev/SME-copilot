@@ -80,8 +80,29 @@ class OpsPilot:
         briefing = self.generate_briefing(kpis, issues, actions)
         
         # Execute Actions (Notifications)
-        # In a real agent, we might ask for confirmation first.
-        # Here we will log them and maybe send the summary email.
+        print("Executing Actions...")
+        for action in actions:
+            try:
+                if action['type'] == 'create_task':
+                    create_task(
+                        title=action['title'],
+                        description=action['description'],
+                        spreadsheet_id=self.profile.get("spreadsheet_id")
+                    )
+                    print(f"Executed: Created Task '{action['title']}'")
+                elif action['type'] == 'create_calendar_event':
+                    create_calendar_event(
+                        summary=action['summary'],
+                        description=action['description'],
+                        start_time=action['start_time'],
+                        end_time=action['end_time']
+                    )
+                    print(f"Executed: Created Calendar Event '{action['summary']}'")
+                elif action['type'] == 'send_email':
+                    # We will send a consolidated email below instead of individual ones
+                    pass
+            except Exception as e:
+                print(f"Failed to execute action {action}: {e}")
         
         # Log to DecisionLog
         log_entry = [
@@ -93,9 +114,11 @@ class OpsPilot:
         save_decision_log(self.profile.get("spreadsheet_id"), log_entry)
         
         # Send Email Report
-        if self.model: # Only if we have LLM to generate a nice body, or just use briefing
+        if self.model: 
             email_body = briefing
-            # send_email("owner@example.com", f"Daily Ops Report - {date}", email_body) # Placeholder email
+            # Send to the user's requested email
+            send_email("shaurya8851@gmail.com", f"Daily Ops Report - {date}", email_body)
+            print("Executed: Sent Daily Briefing Email")
             
         return {
             "briefing": briefing,

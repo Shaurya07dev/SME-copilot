@@ -20,8 +20,12 @@ def get_credentials(service_account_file=None):
     creds = None
     
     # 1. Try Service Account
-    if not service_account_file and os.path.exists('service_account.json'):
-        service_account_file = 'service_account.json'
+    # Calculate project root relative to this file (src/utils/auth.py -> root)
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    default_service_account = os.path.join(base_dir, 'service_account.json')
+    
+    if not service_account_file and os.path.exists(default_service_account):
+        service_account_file = default_service_account
 
     if service_account_file and os.path.exists(service_account_file):
         print(f"Using Service Account: {service_account_file}")

@@ -5,6 +5,11 @@ def get_business_profile(profile_path="data/profiles.json", business_id=None):
     """
     Reads the business profile configuration.
     """
+    # Ensure absolute path for profile_path
+    if not os.path.isabs(profile_path):
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        profile_path = os.path.join(base_dir, profile_path)
+
     if not os.path.exists(profile_path):
         return {"error": f"Profile file not found at {profile_path}"}
     
@@ -13,7 +18,13 @@ def get_business_profile(profile_path="data/profiles.json", business_id=None):
             profiles = json.load(f)
             
         if business_id:
-            return profiles.get(business_id, {"error": "Business ID not found"})
+            # Case-insensitive lookup
+            business_id_lower = business_id.lower().replace(" ", "_")
+            # Also try to match keys in profiles
+            for key in profiles:
+                if key.lower() == business_id_lower:
+                    return profiles[key]
+            return profiles.get(business_id, {"error": f"Business ID '{business_id}' not found"})
         return profiles
     except Exception as e:
         return {"error": str(e)}

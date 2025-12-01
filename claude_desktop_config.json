@@ -1,0 +1,14 @@
+{
+    "mcpServers": {
+        "opspilot": {
+            "command": "python",
+            "args": [
+                "-m",
+                "src.mcp.server"
+            ],
+            "env": {
+                "PYTHONPATH": "c:\\Users\\shaur\\OneDrive\\Desktop\\sme-copilot"
+            }
+        }
+    }
+}

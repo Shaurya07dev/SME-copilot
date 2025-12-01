@@ -77,7 +77,7 @@ def generate_actions(issues, playbooks=None):
                 "subject": "Alert: Low Revenue",
                 "body": f"Attention required. {issue}"
             })
-            })
+
         elif "Low inventory" in issue:
              actions.append({
                 "type": "create_task",
